@@ -1,0 +1,1209 @@
+/* =========================================
+   NEW CITY SCHOOL MANAGEMENT SYSTEM
+   ========================================= */
+
+
+/* =========================================
+   BASIC RESET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    background: #0d3b66;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+
+/* =========================================
+   DASHBOARD
+   ========================================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+/* =========================================
+   CARDS
+   ========================================= */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #0d3b66;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    border: none;
+    background: #0d3b66;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #092d4e;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   CONTENT AREA
+   ========================================= */
+
+#content {
+    background: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+#content h2 {
+    color: #0d3b66;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd3dc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    outline: none;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #0d3b66;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   SUCCESS / ERROR MESSAGES
+   ========================================= */
+
+.success-message {
+    margin-top: 20px;
+    padding: 14px;
+    background: #e8f7ed;
+    color: #19733a;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error-message {
+    margin-top: 20px;
+    padding: 14px;
+    background: #fdeaea;
+    color: #b42318;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   SEARCH RESULT
+   ========================================= */
+
+.student-details {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8fafc;
+    border-left: 5px solid #0d3b66;
+    border-radius: 8px;
+}
+
+.student-details h3 {
+    color: #0d3b66;
+    margin-bottom: 15px;
+}
+
+.student-details p {
+    padding: 8px 0;
+    border-bottom: 1px solid #e1e5ea;
+}
+
+.student-details p:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   ALL STUDENTS
+   ========================================= */
+
+.students-container {
+    width: 100%;
+}
+
+.students-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 850px;
+}
+
+.students-table th {
+    background: #0d3b66;
+    color: white;
+    padding: 13px 10px;
+    text-align: left;
+}
+
+.students-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
+.students-table tr:hover td {
+    background: #f5f8fc;
+}
+
+
+/* =========================================
+   EDIT / DELETE BUTTONS
+   ========================================= */
+
+.action-buttons {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.students-table .edit-btn {
+    background: #1d6fa5;
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+.students-table .edit-btn:hover {
+    background: #15577f;
+}
+
+.students-table .delete-btn {
+    background: #c0392b;
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+.students-table .delete-btn:hover {
+    background: #962d22;
+}
+
+
+/* =========================================
+   EDIT FORM
+   ========================================= */
+
+#editStudentForm {
+    width: 100%;
+}
+
+#editGmr {
+    background: #eeeeee;
+    cursor: not-allowed;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.edit-actions button {
+    flex: 1;
+    min-width: 150px;
+}
+
+.cancel-btn {
+    background: #777;
+}
+
+.cancel-btn:hover {
+    background: #555;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: #0d3b66;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+/* =========================================
+   PROFESSIONAL SCHOOL CERTIFICATE
+   ========================================= */
+
+.certificate {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 720px;
+
+    margin: 30px auto;
+
+    padding: 45px 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf7 0%,
+            #ffffff 50%,
+            #fffdf7 100%
+        );
+
+    color: #172235;
+
+    border: 2px solid #c49a3a;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   INNER BORDER
+   ========================================= */
+
+.certificate::before {
+    content: "";
+
+    position: absolute;
+
+    top: 13px;
+    left: 13px;
+    right: 13px;
+    bottom: 13px;
+
+    border: 1px solid #d6b45a;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   GOLD LINES
+   ========================================= */
+
+.certificate-gold-line {
+    height: 5px;
+
+    width: 75%;
+
+    margin: 0 auto 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b88a28,
+            #e4c66d,
+            #b88a28,
+            transparent
+        );
+
+    position: relative;
+    z-index: 2;
+}
+
+.bottom-line {
+    width: 75%;
+    margin: 25px auto 0;
+}
+
+
+/* =========================================
+   DECORATIVE CORNERS
+   ========================================= */
+
+.corner {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    border-color: #c49a3a;
+
+    z-index: 2;
+}
+
+.corner-top-left {
+    top: 20px;
+    left: 20px;
+
+    border-top: 4px solid;
+    border-left: 4px solid;
+}
+
+.corner-top-right {
+    top: 20px;
+    right: 20px;
+
+    border-top: 4px solid;
+    border-right: 4px solid;
+}
+
+.corner-bottom-left {
+    bottom: 20px;
+    left: 20px;
+
+    border-bottom: 4px solid;
+    border-left: 4px solid;
+}
+
+.corner-bottom-right {
+    bottom: 20px;
+    right: 20px;
+
+    border-bottom: 4px solid;
+    border-right: 4px solid;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.certificate-header {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   SCHOOL CREST
+   ========================================= */
+
+.school-crest {
+    position: relative;
+
+    width: 105px;
+
+    flex-shrink: 0;
+}
+
+.crest-circle {
+    width: 90px;
+    height: 90px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #172f50,
+            #0b1d33
+        );
+
+    border: 4px solid #c49a3a;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+.crest-inner {
+    width: 67px;
+    height: 67px;
+
+    border-radius: 50%;
+
+    border: 1px solid #e4c66d;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+}
+
+.crest-inner strong {
+    font-size: 23px;
+
+    letter-spacing: 2px;
+
+    color: #e4c66d;
+}
+
+.crest-inner span {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    margin-top: 3px;
+}
+
+.crest-ribbon {
+    display: inline-block;
+
+    margin-top: -2px;
+
+    padding: 4px 9px;
+
+    background: #c49a3a;
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   SCHOOL HEADING
+   ========================================= */
+
+.school-heading {
+    text-align: center;
+}
+
+.school-small {
+    font-size: 15px;
+
+    letter-spacing: 6px;
+
+    color: #7b6128;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.school-heading h1 {
+    margin: 0;
+
+    color: #172f50;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+
+    letter-spacing: 1px;
+}
+
+.school-location {
+    margin-top: 7px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: #b18428;
+
+    letter-spacing: 7px;
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.gold-divider {
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 22px 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: "";
+
+    height: 1px;
+
+    background: #c49a3a;
+
+    flex: 1;
+}
+
+.gold-divider span {
+    color: #b18428;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   CERTIFICATE TITLE
+   ========================================= */
+
+.certificate-title {
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.title-small {
+    font-size: 11px;
+
+    color: #8a8a8a;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 7px;
+}
+
+.certificate-title h2 {
+    margin: 0;
+
+    color: #172f50;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 31px;
+
+    letter-spacing: 4px;
+
+    font-weight: normal;
+}
+
+.certificate-title h2 span {
+    display: block;
+
+    color: #b18428;
+
+    font-size: 34px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   STUDENT NAME AREA
+   ========================================= */
+
+.certificate-intro {
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    margin: 20px auto 25px;
+}
+
+.certificate-intro p {
+    color: #555;
+
+    font-size: 14px;
+
+    margin: 5px;
+}
+
+.certificate-intro h3 {
+    margin: 7px 0 0;
+
+    color: #173452;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.name-line {
+    width: 48%;
+
+    height: 1px;
+
+    margin: 5px auto 8px;
+
+    background: #b18428;
+}
+
+.student-description strong {
+    color: #222;
+}
+
+
+/* =========================================
+   STUDENT DETAILS
+   ========================================= */
+
+.certificate-details {
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 9px;
+
+    margin: 20px 0;
+}
+
+.detail-box {
+    min-height: 58px;
+
+    padding: 9px 12px;
+
+    border: 1px solid #ddd4bd;
+
+    background: rgba(255, 252, 241, 0.7);
+
+    text-align: center;
+}
+
+.detail-box span {
+    display: block;
+
+    color: #8a6a28;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+.detail-box strong {
+    display: block;
+
+    color: #26384c;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   STATEMENT
+   ========================================= */
+
+.certificate-statement {
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 850px;
+
+    margin: 22px auto;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.certificate-statement strong {
+    color: #173452;
+}
+
+
+/* =========================================
+   BOTTOM SECTION
+   ========================================= */
+
+.certificate-bottom {
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 140px 1fr;
+
+    align-items: end;
+
+    gap: 30px;
+
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   SIGNATURE AREAS
+   ========================================= */
+
+.signature-box {
+    min-height: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.signature-line {
+    width: 180px;
+
+    border-top: 1px solid #333;
+
+    margin-bottom: 7px;
+}
+
+.signature-box strong {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    color: #26384c;
+}
+
+.signature-box span {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #8a6a28;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   OFFICIAL SEAL
+   ========================================= */
+
+.official-seal {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.seal-circle {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    border: 3px solid #c49a3a;
+
+    outline: 1px solid #c49a3a;
+
+    outline-offset: 4px;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffdf5,
+            #f7eed4
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #173452;
+
+    transform: rotate(-4deg);
+}
+
+.seal-circle strong {
+    font-size: 22px;
+
+    letter-spacing: 2px;
+}
+
+.seal-circle span {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    margin-top: 2px;
+}
+
+.seal-circle small {
+    font-size: 7px;
+
+    color: #9b7627;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================
+   PRINT BUTTON
+   ========================================= */
+
+.print-area {
+    text-align: center;
+
+    margin: 25px 0 35px;
+}
+
+.print-area button {
+    background: #173452;
+
+    padding: 13px 28px;
+
+    font-weight: bold;
+}
+
+.print-area button:hover {
+    background: #0c2338;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .certificate {
+        padding: 35px 25px;
+    }
+
+    .school-heading h1 {
+        font-size: 25px;
+    }
+
+    .certificate-title h2 {
+        font-size: 24px;
+    }
+
+    .certificate-title h2 span {
+        font-size: 27px;
+    }
+
+    .certificate-intro h3 {
+        font-size: 30px;
+    }
+
+    .certificate-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .certificate {
+        padding: 30px 18px;
+
+        min-height: auto;
+    }
+
+    .certificate-header {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .school-heading h1 {
+        font-size: 21px;
+    }
+
+    .school-small {
+        font-size: 11px;
+
+        letter-spacing: 4px;
+    }
+
+    .school-location {
+        font-size: 13px;
+
+        letter-spacing: 5px;
+    }
+
+    .certificate-title h2 {
+        font-size: 19px;
+
+        letter-spacing: 2px;
+    }
+
+    .certificate-title h2 span {
+        font-size: 22px;
+    }
+
+    .certificate-intro h3 {
+        font-size: 25px;
+    }
+
+    .certificate-details {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .corner {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+/* =========================================
+   PRINT
+   ========================================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header,
+    footer,
+    .dashboard,
+    .certificate-form,
+    .print-area {
+        display: none !important;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+    }
+
+    #content {
+        margin: 0;
+        padding: 0;
+
+        box-shadow: none;
+    }
+
+    .certificate {
+        width: 100%;
+        max-width: none;
+
+        min-height: 0;
+
+        margin: 0;
+
+        padding: 35px 45px;
+
+        box-shadow: none;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 8mm;
+    }
+}
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    header,
+    footer,
+    .dashboard,
+    .certificate-form,
+    .print-area {
+        display: none !important;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    #content {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .certificate {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border: 5px double #173f5f;
+        page-break-inside: avoid;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+}
